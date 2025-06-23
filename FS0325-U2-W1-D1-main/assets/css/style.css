@@ -1,0 +1,92 @@
+/* questo foglio di stile si occuperà di applicare delle regole visive al nostro
+documento e di cambiarne i connotati a seconda dello schermo utilizzato */
+
+/* il vostro mantra come sviluppatori >=2025 è ragionare -MOBILE FIRST- */
+/* le vostre pagine web d'ora in poi dovranno prima di tutto venire concepite
+con un layout adatto a smartphone; successivamente dovrete "adattarle" (in una
+maniera che sarà per forza intrinsecamente imperfetta) per dispostivi dotati
+via via di schermi più "larghi" */
+
+/* come prima parte del vostro foglio CSS voi includete le regole appartenenti
+alla categoria SMARTPHONE (mobile first) */
+
+/* STILI MOBILE */
+
+h1 {
+  text-align: center;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  border: 2px solid black;
+  margin-bottom: 2em;
+}
+
+#first {
+  background-color: aquamarine;
+}
+
+#second {
+  background-color: coral;
+}
+
+/* stile mobile del menu di navigazione */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+}
+
+section img {
+  /* facciamo in modo che l'orso si allarghi quanto serve per riempire schermi sempre più larghi, a patto però di non superare la sua dimensione nativa (che porterebbe il povero orso a deformarsi!) */
+  max-width: 100%;
+  /* in questo caso "100%" significa "le mie dimensioni native" */
+}
+
+/* man mano che la dimensione dello schermo aumenta, possiamo utilizzare le media queries per attivare/disattivare determinate porzioni di CSS */
+
+/* STILI TABLET */
+/* possiamo immaginare un tablet come un dispositivo con uno schermo da >= 768px */
+@media screen and (min-width: 768px) {
+  /* questo blocco di stile verrà aggiunto alla pagina solamente se il dispositivo usato è (ragionevolmente) un tablet */
+  /* per prova, cambiamo i colori delle boxes */
+  #first {
+    background-color: brown;
+  }
+  #second {
+    background-color: green;
+  }
+  /* disponiamo ora in orizzontale i link del menu di navigazione */
+  nav li {
+    display: inline-block;
+  }
+}
+
+/* STILI LAPTOP */
+@media screen and (min-width: 1080px) and (orientation: landscape) {
+  /* questo blocco di stile verrà aggiunto alla pagina solamente se il dispositivo usato è (ragionevolmente) un portatile */
+  /* per prova, cambiamo i colori delle boxes */
+  #first {
+    background-color: grey;
+  }
+  #second {
+    background-color: grey;
+  }
+}
+
+/* STILI PER STAMPA */
+@media print {
+  /* nascondiamo il menu */
+  header nav {
+    display: none;
+  }
+}
